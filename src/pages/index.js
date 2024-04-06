@@ -1,6 +1,6 @@
 import Home from "./Home";
-import Movie from "./Movie";
-import Subscription from "./Subscription";
-import Support from "./Support";
+import Shop from "./Shop";
+import Blogs from "./Blogs";
+import Plant from "./Plant";
 
-export { Home, Movie, Support, Subscription};
+export { Home, Shop, Plant, Blogs};

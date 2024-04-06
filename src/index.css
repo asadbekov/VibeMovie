@@ -1,13 +1,16 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+.nav.active{
+    color: black;
+    font-weight: bold;
+    padding-bottom: 23px;
+    padding-top: 23px;
+    border-bottom: 3px solid rgb(144, 197, 71);
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+}
 
-body{
-    background-color: black;
+button.active{
+      background-color: #00f150; 
 }
-.header_item a.active{
-    background-color: #1A1A1A;
-    color: aliceblue;
-    padding: 12px 10px;
-}
- 

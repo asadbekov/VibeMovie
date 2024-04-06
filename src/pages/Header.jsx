@@ -1,115 +1,75 @@
 import React, { useState } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import Home from "./Home";
-import Movie from "./Movie";
-import Support from "./Support";
-import Subscription  from "./Subscription";
+import Shop from "./Shop";
+import Plant from "./Plant";
+import Blogs from "./Blogs";
 import Button from "../../public/icon/Button.svg";
-import logo from "../../public/icon/logo.svg";
+import logo from "../../public/logos/logo.svg";
 import Delete from "../../public/icon/x.svg";
-import search from "../../public/icon/search.svg";
-import bell from "../../public/icon/bell.svg";
-
+import logout from "../../public/icon/logout.svg"
+import search from "../../public/icon/search.svg"
+import shop from "../../public/icon/shop.svg"
 const Header = () => {
-  const [navHidden, setNavHidden] = useState("hidden");
-  const [buttonHidden, setButtonHidden] = useState("");
+
+
   return (
     <div>
-      <div className="bg-opacity-15  z-10 w-full justify-center bg-[#141414] p-2 backdrop-blur-md">
-        <div className="container  mx-auto px-16 py-2 ">
-          <div className="flex items-center justify-between">
-            <NavLink to="/">
-              <img src={logo} alt="logo" width={"200px"} height={"65px"} />
+      <div className=" container mx-auto flex w-full max-w-7xl  p-2">
+        
+        <div className="flex w-full md:w-[50]  items-center justify-between border-b-2">
+          <NavLink to="/">
+            <img src={logo} alt="logo" width={"200px"} height={"65px"} />
+          </NavLink>
+          <div className="hidden items-center rounded-lg md:flex md:gap-2 lg:gap-8">
+            <NavLink
+              to="/"
+              className="nav px-5 py-[10px] text-base font-normal text-[#3D3D3D] hover:text-black"
+            >
+              Home
             </NavLink>
-            <div className="header_item hidden items-center rounded-lg border-white bg-black p-2 md:flex md:gap-3 lg:gap-8 lg:p-[10px]">
-              <NavLink
-                to="/"
-                className=" font-manrope leading-1.5 box-border rounded-lg border border-black bg-black px-5 py-[10px] text-left text-base font-medium tracking-normal text-white hover:bg-[#1A1A1A]"
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/movie"
-                className=" font-manrope leading-1.5 box-border rounded-lg border border-black bg-black px-5 py-[10px] text-left text-base font-medium tracking-normal text-white hover:bg-[#1A1A1A]"
-              >
-                Movies & Shows
-              </NavLink>
-              <NavLink
-                to="/Support"
-                className="  font-manrope leading-1.5 box-border rounded-lg border border-black bg-black px-5 py-[10px] text-left text-base font-medium tracking-normal text-white hover:bg-[#1A1A1A]"
-              >
-                Support
-              </NavLink>
-              <NavLink
-                to="subscription"
-                className=" font-manrope leading-1.5 box-border rounded-lg border border-black bg-black px-5 py-[10px] text-left text-base font-medium tracking-normal text-white hover:bg-[#1A1A1A]"
-              >
-                Subscriptions
-              </NavLink>
-            </div>
-            <div className="flex gap-4 md:gap-7">
-              <button className="ml-[40px]">
-                <img src={search} alt="search" width={"28px"} height={"28px"} />
-              </button>
-              <button>
-                <img src={bell} alt="massege" width={"25px"} height={"28px"} />
-              </button>
+            <NavLink
+              to="/movie"
+              className="nav px-5 py-[10px] text-base font-normal text-[#3D3D3D] hover:text-black"
+            >
+              Shop
+            </NavLink>
+            <NavLink
+              to="/Support"
+              className=" nav px-5 py-[10px] text-base font-normal text-[#3D3D3D] hover:text-black"
+            >
+              Plant Care
+            </NavLink>
+            <NavLink
+              to="subscription"
+              className="nav px-5 py-[10px] text-base font-normal text-[#3D3D3D] hover:text-black"
+            >
+              Blogs
+            </NavLink>
+          </div>
+          <div className="flex space-x-7">
+            <img src={search} alt="img" width={25} />
+            <img src={shop} alt="img" width={35} />
+            <div className="ml-2">
               <button
-                className={`md:hidden ${buttonHidden}`}
-                onClick={() => {
-                  setNavHidden("");
-                  setButtonHidden("hidden");
-                }}
+                onClick={() => setlogin}
+                className=" flex items-center space-x-1 rounded-md bg-green-600 p-2 pl-5 pr-5 text-white"
               >
-                <img src={Button} alt="vector" width={"48px"} height={"48px"} />
-              </button>
-              <button
-                className={`md:hidden ${navHidden}`}
-                onClick={() => {
-                  setNavHidden("hidden");
-                  setButtonHidden("");
-                }}
-              >
-                <img src={Delete} alt="vector" width={"24px"} height={"48px"} />
+                <img className="pr-3" src={logout} alt="" />
+                Login
               </button>
             </div>
           </div>
+         
         </div>
       </div>
-      <div
-        className={`${navHidden} bg-opacity-15 fixed right-0 z-10 mt-[60px] flex flex-col items-end rounded-l-lg bg-[#141414] px-6 py-4 backdrop-blur-md`}
-      >
-        <NavLink
-          to="/"
-          className="cursor-pointer rounded-lg bg-[#1A1A1A] px-4 py-3 text-sm font-medium leading-normal text-white"
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="/movie"
-          className="cursor-pointer rounded-lg px-4 py-3 text-sm font-medium leading-normal text-white hover:bg-[#1A1A1A]"
-        >
-          Movies & Shows
-        </NavLink>
-        <NavLink
-          to="/support"
-          className="cursor-pointer rounded-lg px-4 py-3 text-sm font-medium leading-normal text-white hover:bg-[#1A1A1A]"
-        >
-          Support
-        </NavLink>
-        <NavLink
-          to="subscription"
-          className="cursor-pointer rounded-lg px-4 py-3 text-sm font-medium leading-normal text-white hover:bg-[#1A1A1A]"
-        >
-          Subscriptions
-        </NavLink>
-      </div>
+      
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movie" element={<Movie />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/subscription" element={<Subscription />} />
+        <Route path="/movie" element={<Shop />} />
+        <Route path="/support" element={<Plant />} />
+        <Route path="/subscription" element={<Blogs />} />
       </Routes>
     </div>
   );
