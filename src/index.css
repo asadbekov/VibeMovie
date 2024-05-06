@@ -2,12 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
-    background-color: black;
+.nav.active{
+    color: black;
+    font-weight: bold;
+
 }
-.header_item a.active{
-    background-color: #1A1A1A;
-    color: aliceblue;
-    padding: 12px 10px;
-}
- 

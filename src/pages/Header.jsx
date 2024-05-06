@@ -1,115 +1,114 @@
 import React, { useState } from "react";
 import { NavLink, Route, Routes } from "react-router-dom";
 import Home from "./Home";
-import Movie from "./Movie";
-import Support from "./Support";
-import Subscription  from "./Subscription";
-import Button from "../../public/icon/Button.svg";
-import logo from "../../public/icon/logo.svg";
-import Delete from "../../public/icon/x.svg";
-import search from "../../public/icon/search.svg";
-import bell from "../../public/icon/bell.svg";
+import Branch from "./Branch";
+import AboutUs from "./AboutUs";
+import Contact from "./Contact";
+import logo from "../../public/logo.png";
+import PlaceIcon from "@mui/icons-material/Place";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
+import PersonIcon from "@mui/icons-material/Person";
 
 const Header = () => {
-  const [navHidden, setNavHidden] = useState("hidden");
-  const [buttonHidden, setButtonHidden] = useState("");
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
   return (
     <div>
-      <div className="bg-opacity-15  z-10 w-full justify-center bg-[#141414] p-2 backdrop-blur-md">
-        <div className="container  mx-auto px-16 py-2 ">
+      <div className="container mx-auto w-full max-w-7xl p-2">
+        <div className="pb-4 pt-4">
           <div className="flex items-center justify-between">
-            <NavLink to="/">
-              <img src={logo} alt="logo" width={"200px"} height={"65px"} />
-            </NavLink>
-            <div className="header_item hidden items-center rounded-lg border-white bg-black p-2 md:flex md:gap-3 lg:gap-8 lg:p-[10px]">
-              <NavLink
-                to="/"
-                className=" font-manrope leading-1.5 box-border rounded-lg border border-black bg-black px-5 py-[10px] text-left text-base font-medium tracking-normal text-white hover:bg-[#1A1A1A]"
-              >
-                Home
-              </NavLink>
-              <NavLink
-                to="/movie"
-                className=" font-manrope leading-1.5 box-border rounded-lg border border-black bg-black px-5 py-[10px] text-left text-base font-medium tracking-normal text-white hover:bg-[#1A1A1A]"
-              >
-                Movies & Shows
-              </NavLink>
-              <NavLink
-                to="/Support"
-                className="  font-manrope leading-1.5 box-border rounded-lg border border-black bg-black px-5 py-[10px] text-left text-base font-medium tracking-normal text-white hover:bg-[#1A1A1A]"
-              >
-                Support
-              </NavLink>
-              <NavLink
-                to="subscription"
-                className=" font-manrope leading-1.5 box-border rounded-lg border border-black bg-black px-5 py-[10px] text-left text-base font-medium tracking-normal text-white hover:bg-[#1A1A1A]"
-              >
-                Subscriptions
-              </NavLink>
+            <div className="md:hidden">
+              <button onClick={toggleMenu}>
+                <svg
+                  className="h-6 w-6 text-gray-500"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M4 6h16M4 12h16m-7 6h7"
+                  ></path>
+                </svg>
+              </button>
             </div>
-            <div className="flex gap-4 md:gap-7">
-              <button className="ml-[40px]">
-                <img src={search} alt="search" width={"28px"} height={"28px"} />
-              </button>
-              <button>
-                <img src={bell} alt="massege" width={"25px"} height={"28px"} />
-              </button>
-              <button
-                className={`md:hidden ${buttonHidden}`}
-                onClick={() => {
-                  setNavHidden("");
-                  setButtonHidden("hidden");
-                }}
-              >
-                <img src={Button} alt="vector" width={"48px"} height={"48px"} />
-              </button>
-              <button
-                className={`md:hidden ${navHidden}`}
-                onClick={() => {
-                  setNavHidden("hidden");
-                  setButtonHidden("");
-                }}
-              >
-                <img src={Delete} alt="vector" width={"24px"} height={"48px"} />
-              </button>
+            <div className="flex items-center space-x-8">
+              <NavLink to="/">
+                <img className="" src={logo} alt="logo" width={"50px"} height={"50px"} />
+              </NavLink>
+              <div className="hidden space-x-8 md:flex">
+                <NavLink to="/" className="nav text-lg">
+                  Menyu
+                </NavLink>
+                <NavLink to="/Branch" className="nav text-lg">
+                  Filiallar
+                </NavLink>
+                <NavLink to="/AboutUs" className="nav text-lg">
+                  Biz haqimizda
+                </NavLink>
+                <NavLink to="/Contact" className="nav text-lg">
+                  Bog'lanish
+                </NavLink>
+              </div>
+            </div>
+            <div className="flex items-center space-x-7">
+              <div className="hidden space-x-2 md:flex">
+                <button className="rounded-full bg-slate-100 p-2">
+                  <PlaceIcon color="secondary" />
+                </button>
+                <h1 className="text-sm">
+                  Yetkazib berish yoki Olib ketish <br />
+                  <span className="text-purple-900">
+                    Qabul qilib olish turini tanlang
+                  </span>
+                </h1>
+              </div>
+              <div className="flex items-center space-x-2">
+                <div>
+                  <button className="rounded-full bg-slate-100 p-2">
+                    <ShoppingCartIcon color="secondary" />
+                  </button>
+                </div>
+                <h1>0</h1>
+              </div>
+              <div className=" hidden md:flex">
+                <button className="rounded-full bg-slate-100 p-2">
+                  <PersonIcon color="secondary" />
+                </button>
+              </div>
             </div>
           </div>
         </div>
-      </div>
-      <div
-        className={`${navHidden} bg-opacity-15 fixed right-0 z-10 mt-[60px] flex flex-col items-end rounded-l-lg bg-[#141414] px-6 py-4 backdrop-blur-md`}
-      >
-        <NavLink
-          to="/"
-          className="cursor-pointer rounded-lg bg-[#1A1A1A] px-4 py-3 text-sm font-medium leading-normal text-white"
-        >
-          Home
-        </NavLink>
-        <NavLink
-          to="/movie"
-          className="cursor-pointer rounded-lg px-4 py-3 text-sm font-medium leading-normal text-white hover:bg-[#1A1A1A]"
-        >
-          Movies & Shows
-        </NavLink>
-        <NavLink
-          to="/support"
-          className="cursor-pointer rounded-lg px-4 py-3 text-sm font-medium leading-normal text-white hover:bg-[#1A1A1A]"
-        >
-          Support
-        </NavLink>
-        <NavLink
-          to="subscription"
-          className="cursor-pointer rounded-lg px-4 py-3 text-sm font-medium leading-normal text-white hover:bg-[#1A1A1A]"
-        >
-          Subscriptions
-        </NavLink>
+        {showMenu && (
+          <div className="md:hidden">
+            <NavLink to="/" className="nav block text-lg">
+              Menyu
+            </NavLink>
+            <NavLink to="/Branch" className="nav block text-lg">
+              Filiallar
+            </NavLink>
+            <NavLink to="/AboutUs" className="nav block text-lg">
+              Biz haqimizda
+            </NavLink>
+            <NavLink to="/Contact" className="nav block text-lg">
+              Bog'lanish
+            </NavLink>
+          </div>
+        )}
       </div>
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/movie" element={<Movie />} />
-        <Route path="/support" element={<Support />} />
-        <Route path="/subscription" element={<Subscription />} />
+        <Route path="/Branch" element={<Branch />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/Contact" element={<Contact />} />
       </Routes>
     </div>
   );
