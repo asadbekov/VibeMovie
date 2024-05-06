@@ -1,6 +1,6 @@
 import Home from "./Home";
-import Branch from "./Branch";
-import AboutUs from "./AboutUs";
-import Contact from "./Contact";
+import Shop from "./Shop";
+import Blogs from "./Blogs";
+import Plant from "./Plant";
 
-export { Home, Branch, Contact, AboutUs };
+export { Home, Shop, Plant, Blogs};
